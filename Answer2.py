@@ -49,3 +49,8 @@ def compute_series(n):
     for i in range(1, n + 1):
         sum += 1 / i**2
     return sum
+
+
+print(compute_series(10**6))
+print(compute_series(10**6))
+print(compute_series(10**7))
