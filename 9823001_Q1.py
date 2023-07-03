@@ -34,3 +34,11 @@ async def find_root_binary_search(equation, left, right, precision):
         else:
             left = middle
 
+
+async def main():
+    task1 = find_root_binary_search(Equation(2, -3), 0, 2, 0.001)
+    task2 = find_root_binary_search(QuadraticEquation(1, 0, -4), -2, 4, 0.001)
+    task3 = find_root_binary_search(QuadraticEquation(3, -2, -1), 0, 5, 0.001)
+    await asyncio.gather(task1, task2, task3)
+
+asyncio.run(main())
