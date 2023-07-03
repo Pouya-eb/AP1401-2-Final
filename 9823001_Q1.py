@@ -1,3 +1,6 @@
+import asyncio
+
+
 class Equation:
     def __init__(self, a, b):
         self.a = a
@@ -14,4 +17,20 @@ class QuadraticEquation(Equation):
 
     def compute(self, x):
         return self.a * x ** 2 + self.b * x + self.c
+
+
+async def find_root_binary_search(equation, left, right, precision):
+    
+    while True:
+        middle = (left + right) / 2
+        if ((middle - left) < precision or (right - middle) < precision):
+            print(middle)
+            return middle
+
+        await asyncio.sleep(0.01)
+        if (equation.compute(middle) > 0):
+            print("Computing")
+            right = middle
+        else:
+            left = middle
 
