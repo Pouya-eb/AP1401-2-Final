@@ -10,3 +10,20 @@ def timing(func):
         return
 
     return wrapper
+
+
+def memorize(func):
+    cached = dict()
+
+    def wrapper(n):
+        if n in cached.keys():
+            print("Mode : return from cache")
+            print(f"Sum is : {cached[n]}")
+            return cached[n]
+        res = func(n)
+        cached[n] = res
+        print("Mode : calculated")
+        print(f"Sum is : {res}")
+        return res
+
+    return wrapper
