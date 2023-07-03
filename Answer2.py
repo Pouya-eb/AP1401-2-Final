@@ -27,3 +27,16 @@ def memorize(func):
         return res
 
     return wrapper
+
+
+def enforce_types(x):
+    def wrapper(n):
+        for i in x:
+            if i == int:
+                print("hi")
+                return n
+        else:
+            raise ValueError
+
+    return wrapper
+
